@@ -16,18 +16,20 @@ class Battlefield:
         print("Welcome to Robots vs Dinosaurs, where to future battles with the past.")
 
     def battle_phase (self):
-        while self.fleet.total_fleet_health > 0 and self.herd.total_herd_health > 0:
-            if self.robot.health > 0:
-                self.robot.attack(self.dinosaur)
-            else:    
-                break
-            if self.dinosaur.health > 0:
-                self.dinosaur.attack(self.robot)
+        while self.fleet.robots and self.herd.dinosaurs:
+            self.fleet.select_active_robot()
+            if len(self.fleet.robots) >= 1:
+                self.fleet.active_robot.attack(random.choice(self.herd.dinosaurs))
             else:
                 break
-
+            self.herd.select_active_dionsaur()
+            if len(self.herd.dinosaurs) >= 1:
+                self.herd.active_dinosaur.attack(random.choice(self.fleet.robots))
+            else:
+                break
+           
     def display_winner (self):
-        if self.dinosaur.health > 0:
-            print(f"{self.dinosaur.name} has defeated {self.robot.name}.")
+        if len(self.herd.dinosaurs) == 0:
+            print(f"{self.herd.name} have defeated {self.fleet.name}.")
         else:
-            print(f"{self.robot.name} has defeated {self.dinosaur.name}.")
+            print(f"{self.fleet.name} have defeated {self.herd.name}.")

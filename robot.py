@@ -6,15 +6,16 @@ class Robot:
         self.name = name
         self.health = 100
         self.active_weapon = None
-        self.weapons =  [Weapon("Laser Sword", 10), Weapon("Bolt Rifle", 15), Weapon("Static Shock", 20)]
+        self.weapons =  [Weapon("Laser Sword", 25), Weapon("Bolt Rifle", 30), Weapon("Static Shock", 35)]
 
     def attack(self, dinosaur):
         self.choose_active_weapon()
-        if dinosaur.health >= self.active_weapon.attack_power:
+        if dinosaur.health > self.active_weapon.attack_power:
             dinosaur.health -= self.active_weapon.attack_power
+            print(f"{self.name} attacked {dinosaur.name} using a {self.active_weapon.name} causing {self.active_weapon.attack_power} damage. {dinosaur.name} has {dinosaur.health} remaining.")
+
         else:
             dinosaur.health = 0
-        print(f"{self.name} attacked {dinosaur.name} using a {self.active_weapon.name} causing {self.active_weapon.attack_power} damage. {dinosaur.name} has {dinosaur.health} remaining.")
 
     def choose_active_weapon(self):
         user_input=100
