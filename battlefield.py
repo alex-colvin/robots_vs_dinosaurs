@@ -7,7 +7,9 @@ class Battlefield:
         self.dinosaur = Dinosaur("Spike", 25)
     
     def run_game (self):
-        pass
+        self.display_welcome()
+        self.battle_phase()
+        self.display_winner()
 
     def display_welcome (self):
         print("Welcome to Robots vs Dinosaurs, where to future battles with the past.")
