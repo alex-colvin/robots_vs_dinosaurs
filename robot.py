@@ -8,5 +8,9 @@ class Robot:
         self.active_weapon = Weapon("Laser Sword", 30)
 
     def attack(self, dinosaur):
-        dinosaur.health -= self.active_weapon.attack_power
-        print(f"{self.name} attacked {dinosaur.name} causing {self.active_weapon.attack_power} damage.")
+        if dinosaur.health >= self.active_weapon.attack_power:
+            dinosaur.health -= self.active_weapon.attack_power
+        else:
+            dinosaur.health = 0
+        print(f"{self.name} attacked {dinosaur.name} causing {self.active_weapon.attack_power} damage. {dinosaur.name} has {dinosaur.health} remaining.")
+
