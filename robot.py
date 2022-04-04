@@ -6,7 +6,7 @@ class Robot:
         self.name = name
         self.health = 100
         self.active_weapon = None
-        self.weapons =  [Weapon("Laser Sword", 30), Weapon("Bolt Rifle", 25), Weapon("Static Shock", 20)]
+        self.weapons =  [Weapon("Laser Sword", 10), Weapon("Bolt Rifle", 15), Weapon("Static Shock", 20)]
 
     def attack(self, dinosaur):
         self.choose_active_weapon()
