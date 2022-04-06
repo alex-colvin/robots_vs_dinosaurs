@@ -16,6 +16,7 @@ class Robot:
 
         else:
             dinosaur.health = 0
+            print(f"{self.name} attacked {dinosaur.name} causing {self.active_weapon.attack_power} damage. {dinosaur.name} has been defeated by {self.name}.")
 
     def choose_active_weapon(self):
         user_input=100
